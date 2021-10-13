@@ -7,10 +7,13 @@ export default function App() {
     {id: 2, content: 'Fix up these horrible React notes'},
     {id: 3, content: "End class on time"},
   ]);
+  function deleteTodo(id) {
+    setTodos(todos => todos.filter(todo => todo.id !== id));
+  }
   return (
     <div className="App">
       <h1>Things To Do</h1>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} deleter={deleteTodo} />
     </div>
   );
 }
